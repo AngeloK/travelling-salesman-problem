@@ -2,25 +2,31 @@
 # -*- coding: utf-8 -*-
 
 import helpers
-import DPDriver
+from dp_driver import DPDriver
+from brute_force_tsp import Brute_force_driver
+from greedy_driver import GreedyDriver
 import numpy as np
+import profile
 
 if __name__ == "__main__":
     # Initialize city map
 
-    # city_graph, cities_set = helpers.initialize_cities(4)
-    # print("City Grapy is:")
-    # print city_graph
+    city_graph, cities_set = helpers.initialize_cities(15)
+    print("City Grapy is:")
+    print city_graph
+    # city_graph = np.array([
+        # [0, 38, 72, 40],
+        # [38, 0, 68, 55],
+        # [72, 68, 0, 78],
+        # [40, 55, 78, 0]]
+    # )
+    # cities_set = [0,1,2,3]
+    cities_set = frozenset(cities_set)
+    dp_driver = DPDriver(0, city_graph)
+    profile.run("dp_driver.solve_tsp(0, cities_set)")
 
-    city_graph = np.array([
-        [0, 84, 27, 40],
-        [84, 0, 50, 43],
-        [27, 50,  0, 49],
-        [40, 43, 49, 0]
-    ])
+    # bf_driver = Brute_force_driver(0, city_graph)
+    # profile.run("bf_driver.solve_tsp(0)")
 
-    cities_set = [0, 1, 2, 3]
-
-    dp_driver = DPDriver.DPDriver(0, city_graph)
-    cities_set.remove(0)
-    print dp_driver.minimum_cost_path(0, cities_set)
+    gd_driver = GreedyDriver(0, city_graph)
+    profile.run("gd_driver.solve_tsp(0, cities_set)")
