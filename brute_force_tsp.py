@@ -33,6 +33,10 @@ class Brute_force_driver(Driver):
         return cost, path
 
     def solve_tsp(self, start):
+        '''
+        Emulerate all possibilities from start vertex to this vertex using
+        remained vertices
+        '''
         print "------------------------------------"
         print "Solve using brute force algorithm..."
         min_cost = np.inf
