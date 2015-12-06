@@ -5,13 +5,14 @@ import helpers
 from dp_driver import DPDriver
 from brute_force_tsp import Brute_force_driver
 from greedy_driver import GreedyDriver
+from random_path import Random_path_driver
 import numpy as np
 import profile
 
 if __name__ == "__main__":
     # Initialize city map
 
-    city_graph, cities_set = helpers.initialize_cities(15)
+    city_graph, cities_set = helpers.initialize_cities(10, is_directed=True)
     print("City Grapy is:")
     print city_graph
     # city_graph = np.array([
@@ -22,11 +23,17 @@ if __name__ == "__main__":
     # )
     # cities_set = [0,1,2,3]
     cities_set = frozenset(cities_set)
-    dp_driver = DPDriver(0, city_graph)
-    profile.run("dp_driver.solve_tsp(0, cities_set)")
+    print type(cities_set)
+    # dp_driver = DPDriver(0, city_graph)
+    # profile.run("dp_driver.solve_tsp(0, cities_set)")
 
     # bf_driver = Brute_force_driver(0, city_graph)
     # profile.run("bf_driver.solve_tsp(0)")
 
-    gd_driver = GreedyDriver(0, city_graph)
-    profile.run("gd_driver.solve_tsp(0, cities_set)")
+    # gd_driver = GreedyDriver(0, city_graph)
+    # gd_driver.solve_tsp(0, cities_set)
+    # profile.run("gd_driver.solve_tsp(0, cities_set)")
+
+    rd_driver = Random_path_driver(0, city_graph)
+    rd_driver.solve_tsp(0, cities_set)
+    # profile.run("rd_driver.solve_tsp(0, cities_set)")

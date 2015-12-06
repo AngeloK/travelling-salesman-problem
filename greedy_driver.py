@@ -29,13 +29,13 @@ class GreedyDriver(Driver):
             min_cost = np.inf
             for vertex in remained_set:
                 if self.cost(vertex, path[-1]) < min_cost:
-                    min_cost = self.cost(vertex, path[-1])
+                    min_cost = self.cost(path[-1], vertex)
                     next_vertext = vertex
             total_min_cost += min_cost
             path.append(next_vertext)
             remained_set = remained_set - {next_vertext}
 
-        total_min_cost += self.cost(start, path[-1])
+        total_min_cost += self.cost(path[-1], start)
         path.append(start)
         print total_min_cost
         print path
