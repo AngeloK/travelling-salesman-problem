@@ -23,9 +23,8 @@ if __name__ == "__main__":
     # )
     # cities_set = [0,1,2,3]
     cities_set = frozenset(cities_set)
-    print type(cities_set)
-    # dp_driver = DPDriver(0, city_graph)
-    # profile.run("dp_driver.solve_tsp(0, cities_set)")
+    dp_driver = DPDriver(0, city_graph)
+    profile.run("dp_driver.solve_tsp(0, cities_set)")
 
     # bf_driver = Brute_force_driver(0, city_graph)
     # profile.run("bf_driver.solve_tsp(0)")
@@ -34,6 +33,6 @@ if __name__ == "__main__":
     # gd_driver.solve_tsp(0, cities_set)
     # profile.run("gd_driver.solve_tsp(0, cities_set)")
 
-    rd_driver = Random_path_driver(0, city_graph)
-    rd_driver.solve_tsp(0, cities_set)
+    # rd_driver = Random_path_driver(0, city_graph)
+    # rd_driver.solve_tsp(0, cities_set)
     # profile.run("rd_driver.solve_tsp(0, cities_set)")

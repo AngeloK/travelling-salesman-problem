@@ -55,9 +55,9 @@ class DPDriver(driver.Driver):
         main_problem_key = (0, remained_set)
         self._subproblems[main_problem_key] = self.find_optimal_subproblem(
             main_problem_key)
-        print self._subproblems[main_problem_key]
         print "End!"
         print "------------------------------------"
+        return self._subproblems[main_problem_key]
 
     def find_optimal_subproblem(self, key):
         '''Key is an tuple (start, {REM}), using the set REM to generate subsets.
