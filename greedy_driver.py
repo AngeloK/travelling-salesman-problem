@@ -37,7 +37,6 @@ class GreedyDriver(Driver):
 
         total_min_cost += self.cost(path[-1], start)
         path.append(start)
-        print total_min_cost
-        print path
+        return total_min_cost, path
         print "End!"
         print "------------------------------------"
