@@ -55,6 +55,7 @@ class DPDriver(driver.Driver):
         main_problem_key = (0, remained_set)
         self._subproblems[main_problem_key] = self.find_optimal_subproblem(
             main_problem_key)
+        print self._subproblems[main_problem_key]
         print "End!"
         print "------------------------------------"
         return self._subproblems[main_problem_key]
@@ -76,7 +77,7 @@ class DPDriver(driver.Driver):
             sub_key = (element, key[1] - {element})
             if self._subproblems[sub_key].path_cost() + self.cost(key[0], element) < min_weight:
                 min_weight = self._subproblems[
-                    sub_key].path_cost() + self.cost(element, key[0])
+                    sub_key].path_cost() + self.cost(key[0], element)
                 min_key = sub_key
 
         return Path(min_weight).join_path(

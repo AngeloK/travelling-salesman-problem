@@ -56,3 +56,4 @@ class Brute_force_driver(Driver):
         print min_path
         print "End!"
         print "------------------------------------"
+        return min_cost, min_path
