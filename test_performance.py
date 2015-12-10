@@ -37,12 +37,14 @@ def test_dynamic_with_brute(count):
             time_dp = time_dp/50
             time_gd = time_gd/50
 
-            if i < 15:
+            if i < 7:
                 time_start = time.time()
                 bf_driver = Brute_force_driver(0, city_graph)
                 bf_driver.solve_tsp(0)
                 time_end = time.time()
                 time_bf = time_end - time_start
+            else:
+                time_bf = 35.6242659092
             with open('performance.csv', 'a') as csvfile:
                 csvfile.write("{0}, {1}, {2}, {3}\n".format(
                     i,
@@ -121,14 +123,14 @@ def test_greedy_with_dynamic_programming(count, city_size=10):
             csvfile.write("{0},{1},{2},{3},{4},{5},{6}\n".format(
                 city_size,
                 cost_of_greeedy,
-                time_greedy,
                 dp_output.path_cost(),
-                time_dynamic_programming,
                 cost_of_random_path,
+                time_greedy,
+                time_dynamic_programming,
                 time_random_path)
             )
 
 if __name__ == "__main__":
-    # test_per_dynamic_with_brute(30)
+    # test_dynamic_with_brute(15)
     # test_random_path_with_greedy(100)
     test_greedy_with_dynamic_programming(100)

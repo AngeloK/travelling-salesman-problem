@@ -8,10 +8,10 @@ from greedy_driver import GreedyDriver
 from random_path import Random_path_driver
 import numpy as np
 import profile
+from helpers import draw_performance, draw_multi_performance
+import test_performance
 
-if __name__ == "__main__":
-    # Initialize city map
-
+def tsp():
     try:
         city_size = int(raw_input("Please input the city size: (Default=10) "))
     except:
@@ -32,7 +32,8 @@ if __name__ == "__main__":
         print "You chose directed graph.\n"
     else:
         print "You chose undirected graph.\n"
-    city_graph, cities_set = helpers.initialize_cities(city_size, is_directed=is_directed)
+    city_graph, cities_set = helpers.initialize_cities(
+        city_size, is_directed=is_directed)
     cities_set = frozenset(cities_set)
     print("City Grapy is:\n")
     print city_graph
@@ -40,7 +41,7 @@ if __name__ == "__main__":
     try:
         method = int(raw_input(
             "Which algorithms to use (Default=4)?\n 1). Dynamic Programming\n 2).Greedy Algorithm.\n 3). Brute Force\n 4) All of Them\n ")) or 4
-        if method not in [1,2,3,4]:
+        if method not in [1, 2, 3, 4]:
             method = 4
     except:
         method = 4
@@ -66,3 +67,11 @@ if __name__ == "__main__":
 
         bf_driver = Brute_force_driver(0, city_graph)
         bf_driver.solve_tsp(0)
+
+
+
+if __name__ == "__main__":
+    # Initialize city map
+    tsp()
+    # draw_performance("performance-sample.csv", "Size-Time Graph")
+    # draw_multi_performance("performance_greedy_with_dp.csv")
