@@ -37,7 +37,10 @@ class Random_path_driver(Driver):
 
         total_min_cost += self.cost(path[-1], start)
         path.append(start)
-        return total_min_cost, path
-
+        print "Cost: %d" % total_min_cost
+        print "Path"
+        print path
         print "End!"
         print "------------------------------------"
+        return total_min_cost, path
+
