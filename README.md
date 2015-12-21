@@ -1,14 +1,14 @@
-README
 
-Step 0
+
+###Step 0
 
 Install environment
 
 * Python 2.6+
-* pip
+* Pip
 * Virtualenv
 
-Step 1
+###Step 1
 
 Create virtual environment, and use 
 
@@ -16,7 +16,7 @@ Create virtual environment, and use
 
 to install all modules necessary.
 
-Step 2
+###Step 2
 
 Enter into main folder and run
 
